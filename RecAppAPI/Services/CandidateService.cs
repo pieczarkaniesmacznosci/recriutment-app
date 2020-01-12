@@ -13,13 +13,13 @@ namespace RecAppAPI.Services
         void AddCandidate(Candidate candidate);
         void ChangeResult(int id);
         void EditCandidate(int id, Candidate candidate);
-        void DeleteCandidate(int id);
+        void DeleteCandidate(int? id);
     }
 
     public class CandidateService : ICandidateService
     {
-        private ICandidateRepository candidateRepository;
-        private List<Candidate> candidates;
+        private readonly ICandidateRepository candidateRepository;
+        private readonly List<Candidate> candidates;
 
         public CandidateService(ICandidateRepository candidateRepository)
         {
@@ -69,6 +69,7 @@ namespace RecAppAPI.Services
             
             dataEntryToEdit.PositiveResult = !dataEntryToEdit.PositiveResult;
         }
+
         public void EditCandidate(int id, Candidate candidate)
         {
             var dataEntryToEdit = this.candidates.SingleOrDefault(e => e.Id == id);
@@ -84,7 +85,7 @@ namespace RecAppAPI.Services
             dataEntryToEdit.PositiveResult = candidate.PositiveResult;
         }
 
-        public void DeleteCandidate(int id)
+        public void DeleteCandidate(int? id)
         {
             var dataEntryToDelete = this.candidates.SingleOrDefault(e => e.Id == id);
 

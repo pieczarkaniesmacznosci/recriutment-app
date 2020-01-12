@@ -14,7 +14,7 @@ namespace RecAppAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private ICandidateService candidateService;
+        private readonly ICandidateService candidateService;
         public ValuesController(ICandidateService candidateService)
         {
             this.candidateService = candidateService;
@@ -35,30 +35,48 @@ namespace RecAppAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] string candidateJson)
         {
             Candidate candidateToAdd;
             try
             {
-                candidateToAdd = JsonConvert.DeserializeObject<Candidate>(value);
+                candidateToAdd = JsonConvert.DeserializeObject<Candidate>(candidateJson);
             }
             catch (JsonReaderException)
             {
-                throw new ArgumentException($"Invalid json provided: {value}");
+                throw new ArgumentException($"Invalid json provided: {candidateJson}");
             }
             this.candidateService.AddCandidate(candidateToAdd);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] string candidateJson)
         {
+            Candidate candidateToAdd;
+            try
+            {
+                candidateToAdd = JsonConvert.DeserializeObject<Candidate>(candidateJson);
+            }
+            catch (JsonReaderException)
+            {
+                throw new ArgumentException($"Invalid json provided: {candidateJson}");
+            }
+            this.candidateService.EditCandidate(id,candidateToAdd);
+        }
+
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void ChangeResult(int id)
+        {
+            this.candidateService.ChangeResult(id);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(int? id)
         {
+            this.candidateService.DeleteCandidate(id);
         }
     }
 }
