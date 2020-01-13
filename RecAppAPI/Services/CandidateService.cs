@@ -6,16 +6,6 @@ using System.Linq;
 
 namespace RecAppAPI.Services
 {
-    public interface ICandidateService
-    {
-        IEnumerable<Candidate> GetAllCandidates();
-        Candidate GetCandidate(int? id);
-        void AddCandidate(Candidate candidate);
-        void ChangeResult(int id);
-        void EditCandidate(int id, Candidate candidate);
-        void DeleteCandidate(int? id);
-    }
-
     public class CandidateService : ICandidateService
     {
         private readonly ICandidateRepository candidateRepository;
@@ -70,13 +60,13 @@ namespace RecAppAPI.Services
             dataEntryToEdit.PositiveResult = !dataEntryToEdit.PositiveResult;
         }
 
-        public void EditCandidate(int id, Candidate candidate)
+        public void EditCandidate(Candidate candidate)
         {
-            var dataEntryToEdit = this.candidates.SingleOrDefault(e => e.Id == id);
+            var dataEntryToEdit = this.candidates.SingleOrDefault(e => e.Id == candidate.Id);
 
             if (dataEntryToEdit == null)
             {
-                throw new KeyNotFoundException($"Data entry not found: {id}");
+                throw new KeyNotFoundException($"Data entry not found");
             }
             
             dataEntryToEdit.FirstName = candidate.FirstName;
