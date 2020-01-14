@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using RecApp.Models;
+using RecApp.Models.ViewModels;
 
 namespace RecApp.Controllers
 {
     public class HomeController : Controller
     {
+        private HomeViewModel homeViewModel;
+
+        public HomeController()
+        {
+            this.homeViewModel = new HomeViewModel();
+        }
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            var candidatesList = this.homeViewModel.Candidates;
+            return View(candidatesList);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
