@@ -1,9 +1,43 @@
-﻿@model List<Candidate>
+﻿@using RecApp.Models.ViewModels
+@model RecApp.Models.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <table class="table table-striped sortable">
+        <tr class="table-info">
+            <th>
+                First name
+            </th>
+            <th>
+                Last name
+            </th>
+            <th>
+                Interview date
+            </th>
+            <th>
+                Recruitment process result
+            </th>
+        </tr>
+        @foreach (var item in Model.Candidates)
+        {
+            <tr>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+                <td>
+                    @item.InterviewDate.ToString("dd/MM/yyyy @ HH:mm")
+                </td>
+                <td>
+                    <asp:DropDownList>
+                        <select asp-for="Result" class="form-control" asp-items="@Html.GetEnumSelectList(typeof(Result))"></select>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+        }
+    </table>
 </div>

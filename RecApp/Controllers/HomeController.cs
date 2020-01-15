@@ -15,7 +15,7 @@ namespace RecApp.Controllers
         }
         public IActionResult Index()
         {
-            var candidatesList = this.homeViewModel.Candidates;
+            var candidatesList = this.homeViewModel;
             return View(candidatesList);
         }
 
