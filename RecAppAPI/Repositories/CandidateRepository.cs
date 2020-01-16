@@ -3,51 +3,80 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using RecAppAPI.Models;
+using RecAppAPI.Models;
 
 namespace RecAppAPI.Repositories
 {
-    public interface ICandidateRepository
-    {
-        List<Candidate> GetCandidates();
-    }
-
     public class CandidateRepository : ICandidateRepository
     {
         public List<Candidate> GetCandidates()
         {
-            var candidatesList = new List<Candidate>
+            var candidatesList = 
+            new List<Candidate>
             {
-                new Candidate()
+                new Candidate
                 {
                     Id = 1,
                     FirstName = "Lukasz",
                     LastName = "Pieczonka",
-                    InterviewDate = new DateTime(2020,01,10,10,10,10),
-                    PositiveResult = true
+                    InterviewDate = new DateTime(2020,01,10,12,15,00),
+                    Result = Result.Positive
                 },
-                new Candidate()
+                new Candidate
                 {
                     Id = 2,
-                    FirstName = "John",
-                    LastName = "Doe",
-                    InterviewDate = new DateTime(2020,01,10,10,10,10),
-                    PositiveResult = false
+                    FirstName = "Michael",
+                    LastName = "Scott",
+                    InterviewDate = new DateTime(2020,01,10,14,00,00),
+                    Result = Result.Positive
                 },
-                new Candidate()
+                new Candidate
                 {
                     Id = 3,
-                    FirstName = "Mike",
-                    LastName = "Smith",
-                    InterviewDate = new DateTime(2020,01,10,10,10,10),
-                    PositiveResult = false
+                    FirstName = "Pam",
+                    LastName = "Beesly",
+                    InterviewDate = new DateTime(2020,01,13,14,30,00),
+                    Result = Result.Negative
                 },
-                new Candidate()
+                new Candidate
                 {
                     Id = 4,
-                    FirstName = "Chris",
-                    LastName = "Bird",
-                    InterviewDate = new DateTime(2020,02,12,13,10,10),
-                    PositiveResult = true
+                    FirstName = "Jim",
+                    LastName = "Helpert",
+                    InterviewDate = new DateTime(2020,01,14,16,00,10),
+                    Result = Result.Negative
+                },
+                new Candidate
+                {
+                    Id = 5,
+                    FirstName = "Andy",
+                    LastName = "Bernard",
+                    InterviewDate = new DateTime(2020,02,07,13,30,00),
+                    Result = Result.Negative
+                },
+                new Candidate
+                {
+                    Id = 6,
+                    FirstName = "Kevin",
+                    LastName = "Malone",
+                    InterviewDate = new DateTime(2020,02,14,13,30,00),
+                    Result = Result.Positive
+                },
+                new Candidate
+                {
+                    Id = 7,
+                    FirstName = "John",
+                    LastName = "Doe",
+                    InterviewDate = new DateTime(2020,01,13,15,30,00),
+                    Result = Result.Negative
+                },
+                new Candidate
+                {
+                    Id = 8,
+                    FirstName = "Mike",
+                    LastName = "Smith",
+                    InterviewDate = new DateTime(2020,01,14,16,00,10),
+                    Result = Result.Negative
                 }
             };
 

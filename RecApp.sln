@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecApp", "RecApp\RecApp.csproj", "{546A9B6C-8497-41BF-AD63-D38970380A16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecApp", "RecApp\RecApp.csproj", "{546A9B6C-8497-41BF-AD63-D38970380A16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecAppAPI", "RecAppAPI\RecAppAPI.csproj", "{684CE09D-8BA9-4D15-B67D-2AAF956A3F2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecAppAPI", "RecAppAPI\RecAppAPI.csproj", "{684CE09D-8BA9-4D15-B67D-2AAF956A3F2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecAppTests", "RecAppTests\RecAppTests.csproj", "{BC74D6DA-4223-420A-91EC-5346766D2101}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{684CE09D-8BA9-4D15-B67D-2AAF956A3F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{684CE09D-8BA9-4D15-B67D-2AAF956A3F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{684CE09D-8BA9-4D15-B67D-2AAF956A3F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC74D6DA-4223-420A-91EC-5346766D2101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC74D6DA-4223-420A-91EC-5346766D2101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC74D6DA-4223-420A-91EC-5346766D2101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC74D6DA-4223-420A-91EC-5346766D2101}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

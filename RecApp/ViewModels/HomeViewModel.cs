@@ -3,17 +3,6 @@ using System.Collections.Generic;
 
 namespace RecApp.Models.ViewModels
 {
-    public interface IHomeViewModel
-    {
-        List<Candidate> Candidates { get; }
-        Result Result { get; }
-    }
-    public enum Result
-    {
-        Positive = 1,
-        Negative = 2
-    }
-
     public class HomeViewModel : IHomeViewModel
     {
         public List<Candidate> Candidates =>

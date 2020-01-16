@@ -56,8 +56,15 @@ namespace RecAppAPI.Services
             {
                 throw new KeyNotFoundException($"Data entry not found: {id}");
             }
-            
-            dataEntryToEdit.PositiveResult = !dataEntryToEdit.PositiveResult;
+
+            if (dataEntryToEdit.Result == Result.Positive)
+            {
+                dataEntryToEdit.Result = Result.Negative;
+            }
+            else
+            {
+                dataEntryToEdit.Result = Result.Negative;
+            }
         }
 
         public void EditCandidate(Candidate candidate)
@@ -72,7 +79,7 @@ namespace RecAppAPI.Services
             dataEntryToEdit.FirstName = candidate.FirstName;
             dataEntryToEdit.LastName = candidate.LastName;
             dataEntryToEdit.InterviewDate = candidate.InterviewDate;
-            dataEntryToEdit.PositiveResult = candidate.PositiveResult;
+            dataEntryToEdit.Result = candidate.Result;
         }
 
         public void DeleteCandidate(int? id)

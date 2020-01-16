@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using RecAppAPI.Models;
 
 namespace RecAppAPI.Models
 {
@@ -11,6 +9,6 @@ namespace RecAppAPI.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime InterviewDate { get; set; }
-        public bool PositiveResult { get; set; }
+        public Result Result { get; set; }
     }
 }
