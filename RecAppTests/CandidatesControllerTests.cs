@@ -1,25 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Moq;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using RecAppAPI.Controllers;
 using RecAppAPI.Models;
 using RecAppAPI.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RecAppTests
 {
     [TestFixture]
     public class CandidatesControllerTests
     {
-        private Mock<ICandidateService> candidateService;
+        private Mock<ICandidatesService> candidateService;
         private CandidatesController candidatesController;
 
         [SetUp]
         public void SetUp()
         {
-            this.candidateService = new Mock<ICandidateService>();
+            this.candidateService = new Mock<ICandidatesService>();
             this.candidatesController = new CandidatesController(this.candidateService.Object);
         }
 
@@ -27,7 +27,8 @@ namespace RecAppTests
         public void Get_CalledWithoutId_ResultContainsAllElements()
         {
             // Arrange
-            this.candidateService.Setup(x => x.GetAllCandidates()).Returns(new List<Candidate>
+            this.candidateService.Setup(x => x.GetAllCandidates()).Returns(
+                new List<Candidate>
             {
                 new Candidate
                 {
@@ -57,7 +58,7 @@ namespace RecAppTests
         }
 
         [Test]
-        public void Get_CalledWithId_ResultContainsElements()
+        public void Get_CalledWithId_ResultContainsElement()
         {
             // Arrange
             this.candidateService.Setup(x => x.GetCandidate(2))

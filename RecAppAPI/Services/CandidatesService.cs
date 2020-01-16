@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace RecAppAPI.Services
 {
-    public class CandidateService : ICandidateService
+    public class CandidatesService : ICandidatesService
     {
-        private readonly ICandidateRepository candidateRepository;
+        private readonly ICandidatesRepository candidateRepository;
         private readonly List<Candidate> candidates;
 
-        public CandidateService(ICandidateRepository candidateRepository)
+        public CandidatesService(ICandidatesRepository candidateRepository)
         {
             this.candidateRepository = candidateRepository;
             candidates = this.candidateRepository.GetCandidates();
@@ -57,14 +57,7 @@ namespace RecAppAPI.Services
                 throw new KeyNotFoundException($"Data entry not found: {id}");
             }
 
-            if (dataEntryToEdit.Result == Result.Positive)
-            {
-                dataEntryToEdit.Result = Result.Negative;
-            }
-            else
-            {
-                dataEntryToEdit.Result = Result.Negative;
-            }
+            dataEntryToEdit.Result = dataEntryToEdit.Result == Result.Positive ? Result.Negative : Result.Positive;
         }
 
         public void EditCandidate(Candidate candidate)

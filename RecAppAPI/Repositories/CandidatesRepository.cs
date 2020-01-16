@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using RecAppAPI.Models;
 using RecAppAPI.Models;
 
 namespace RecAppAPI.Repositories
 {
-    public class CandidateRepository : ICandidateRepository
+    public class CandidatesRepository : ICandidatesRepository
     {
         public List<Candidate> GetCandidates()
         {

@@ -11,8 +11,8 @@ namespace RecAppAPI.Controllers
     [ApiController]
     public class CandidatesController : ControllerBase
     {
-        private readonly ICandidateService candidateService;
-        public CandidatesController(ICandidateService candidateService)
+        private readonly ICandidatesService candidateService;
+        public CandidatesController(ICandidatesService candidateService)
         {
             this.candidateService = candidateService;
         }

@@ -3,7 +3,7 @@ using RecAppAPI.Models;
 
 namespace RecAppAPI.Repositories
 {
-    public interface ICandidateRepository
+    public interface ICandidatesRepository
     {
         List<Candidate> GetCandidates();
     }

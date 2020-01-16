@@ -3,7 +3,7 @@ using RecAppAPI.Models;
 
 namespace RecAppAPI.Services
 {
-    public interface ICandidateService
+    public interface ICandidatesService
     {
         IEnumerable<Candidate> GetAllCandidates();
         Candidate GetCandidate(int? id);
