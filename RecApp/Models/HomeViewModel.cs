@@ -10,8 +10,8 @@ namespace RecApp.Models.ViewModels
     }
     public enum Result
     {
-        Positive,
-        Negative
+        Positive = 1,
+        Negative = 2
     }
 
     public class HomeViewModel : IHomeViewModel
@@ -32,7 +32,7 @@ namespace RecApp.Models.ViewModels
                     Id = 2,
                     FirstName = "Michael",
                     LastName = "Scott",
-                    InterviewDate = new DateTime(2020,01,10,12,15,00),
+                    InterviewDate = new DateTime(2020,01,10,14,00,00),
                     Result = Result.Positive
                 },
                 new Candidate
@@ -40,7 +40,8 @@ namespace RecApp.Models.ViewModels
                     Id = 3,
                     FirstName = "Pam",
                     LastName = "Beesly",
-                    InterviewDate = new DateTime(2020,01,13,14,30,00)
+                    InterviewDate = new DateTime(2020,01,13,14,30,00),
+                    Result = Result.Negative
                 },
                 new Candidate
                 {
@@ -55,7 +56,7 @@ namespace RecApp.Models.ViewModels
                     Id = 5,
                     FirstName = "Andy",
                     LastName = "Bernard",
-                    InterviewDate = new DateTime(2020,02,12,13,30,00),
+                    InterviewDate = new DateTime(2020,02,07,13,30,00),
                     Result = Result.Negative
                 },
                 new Candidate
@@ -63,15 +64,16 @@ namespace RecApp.Models.ViewModels
                     Id = 6,
                     FirstName = "Kevin",
                     LastName = "Malone",
-                    InterviewDate = new DateTime(2020,02,12,13,30,00),
-                    Result = Result.Negative
+                    InterviewDate = new DateTime(2020,02,14,13,30,00),
+                    Result = Result.Positive
                 },
                 new Candidate
                 {
                     Id = 7,
                     FirstName = "John",
                     LastName = "Doe",
-                    InterviewDate = new DateTime(2020,01,13,14,30,00)
+                    InterviewDate = new DateTime(2020,01,13,15,30,00),
+                    Result = Result.Negative
                 },
                 new Candidate
                 {

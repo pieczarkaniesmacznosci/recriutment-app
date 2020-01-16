@@ -1,22 +1,22 @@
-﻿@using RecApp.Models.ViewModels
+﻿@using Microsoft.CodeAnalysis.CSharp.Syntax
+@using RecApp.Models.ViewModels
 @model RecApp.Models.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="row">
-    <table class="table table-striped sortable">
+    <table class="table table-striped table-bordered">
         <tr class="table-info">
-            <th>
+            <th style="width: 25%">
                 First name
             </th>
-            <th>
+            <th style="width: 25%">
                 Last name
             </th>
-            <th>
+            <th style="width: 30%">
                 Interview date
             </th>
-            <th>
+            <th style="width: 20%">
                 Recruitment process result
             </th>
         </tr>
@@ -33,9 +33,19 @@
                     @item.InterviewDate.ToString("dd/MM/yyyy @ HH:mm")
                 </td>
                 <td>
-                    <asp:DropDownList>
-                        <select asp-for="Result" class="form-control" asp-items="@Html.GetEnumSelectList(typeof(Result))"></select>
-                    </asp:DropDownList>
+                    <select class="custom-select">
+                        @foreach (var e in Enum.GetValues(typeof(Result)).Cast<int>())
+                        {
+                            if (Enum.GetName(typeof(Result), e) == item.Result.ToString())
+                            {
+                                <option value="@e.ToString()" selected>@Enum.GetName(typeof(Result), e)</option>
+                            }
+                            else
+                            {
+                                <option value="@e.ToString()" >@Enum.GetName(typeof(Result), e)</option>
+                            }
+                        }
+                    </select>
                 </td>
             </tr>
         }

@@ -19,8 +19,14 @@ html {
   }
 }
 
+.table th result-cell {
+    width: 200px;
+}
+custom-select {
+    min-width: 120px;
+}
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;

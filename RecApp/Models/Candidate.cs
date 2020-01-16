@@ -12,6 +12,6 @@ namespace RecApp.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime InterviewDate { get; set; }
-        public Result? Result { get; set; }
+        public Result Result { get; set; }
     }
 }
