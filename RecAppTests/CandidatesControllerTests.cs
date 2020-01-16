@@ -71,7 +71,7 @@ namespace RecAppTests
                         Result = Result.Positive
                     });
 
-        // Act
+            // Act
             var result = candidatesController.Get(2);
 
             // Assert
@@ -98,7 +98,8 @@ namespace RecAppTests
 
         [Test]
         public void Post_CalledWithValidArgument_DoesNotThrowException()
-        {// Arrange
+        {
+            // Arrange
             var candidateToAdd =
                     new Candidate
                     {
@@ -114,8 +115,42 @@ namespace RecAppTests
             // Assert
             Assert.DoesNotThrow(() => candidatesController.Post(candidateJson));
         }
-        
 
-        // TODO: Similar for other methods, checking correctness of the data and returned values. 
+        [Test]
+        public void Put_CalledWithNullArgument_ThrowsArgumentNullException()
+        {
+            // Assert
+            Assert.Throws<ArgumentNullException>(() => candidatesController.Put(""));
+        }
+
+        [Test]
+        public void Put_CalledWithInvalidCandidateArgument_ThrowsArgumentException()
+        {
+            var objToAdd = "sdafscxzcvcxzxcv";
+
+            // Assert
+            Assert.Throws<ArgumentException>(() => candidatesController.Put(objToAdd));
+        }
+
+
+        [Test]
+        public void Put_CalledWithValidCandidateArgument_DoesNotThrowException()
+        {
+            // Arrange
+            var candidateToAdd =
+                new Candidate
+                {
+                    Id = 2,
+                    FirstName = "Michael",
+                    LastName = "Scottish",
+                    InterviewDate = new DateTime(2020, 01, 10, 14, 00, 00),
+                    Result = Result.Positive
+                };
+
+            var candidateJson = JsonConvert.SerializeObject(candidateToAdd);
+
+            // Assert
+            Assert.DoesNotThrow(() => candidatesController.Put(candidateJson));
+        }
     }
 }

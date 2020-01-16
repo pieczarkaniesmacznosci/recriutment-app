@@ -55,6 +55,11 @@ namespace RecAppAPI.Controllers
         [HttpPut("{id}")]
         public void Put([FromBody] string candidateJson)
         {
+            if (string.IsNullOrWhiteSpace(candidateJson))
+            {
+                throw new ArgumentNullException("No object to post.");
+            }
+
             Candidate candidateToAdd;
             try
             {
