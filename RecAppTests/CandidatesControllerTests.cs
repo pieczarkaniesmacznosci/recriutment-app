@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Moq;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using RecAppAPI.Controllers;
 using RecAppAPI.Models;
@@ -86,12 +87,34 @@ namespace RecAppTests
         }
 
         [Test]
-        public void Post_CalledWithInvalidArgument_ThrowsFormatException()
+        public void Post_CalledWithInvalidArgument_ThrowsArgumentException()
         {
-            var objToAdd = "{\"id\" = 123213}";
+            var objToAdd = "sdafscxzcvcxzxcv";
+
             // Assert
-            Assert.Throws<FormatException>(() => candidatesController.Post(objToAdd));
+            Assert.Throws<ArgumentException>(() => candidatesController.Post(objToAdd));
         }
+
+
+        [Test]
+        public void Post_CalledWithValidArgument_DoesNotThrowException()
+        {// Arrange
+            var candidateToAdd =
+                    new Candidate
+                    {
+                        Id = 2,
+                        FirstName = "Michael",
+                        LastName = "Scott",
+                        InterviewDate = new DateTime(2020, 01, 10, 14, 00, 00),
+                        Result = Result.Positive
+                    };
+
+            var candidateJson = JsonConvert.SerializeObject(candidateToAdd);
+
+            // Assert
+            Assert.DoesNotThrow(() => candidatesController.Post(candidateJson));
+        }
+        
 
         // TODO: Similar for other methods, checking correctness of the data and returned values. 
     }
